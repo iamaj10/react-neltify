@@ -4,49 +4,49 @@ import styles from "../assets/css/Calculator.module.css";
 
 const Calculator = () => {
   //Variable to store input
-  let [result, setResult] = useState("0");
+  let [input, setInput] = useState("0");
 
   //Function to handle calculator button presess
   const handleClick = (e) => {
-    if (result.length >= 16) {
-      setResult("Input too long!");
+    if (input.length >= 16) {
+      setInput("Input too long!");
       let timeout = setTimeout(() => {
-        setResult("0");
+        setInput("0");
         clearTimeout(timeout);
       }, 1000);
       return;
     }
-    if (result.charAt(0) === "0") {
-      result = result.slice(1, result.length);
+    if (input.charAt(0) === "0") {
+      input = input.slice(1, input.length);
     }
-    setResult(result.concat(e.target.name));
+    setInput(input.concat(e.target.name));
   };
 
   //Function to clear input and set to 0
   const clearForm = () => {
-    setResult("0");
+    setInput("0");
   };
 
   //Function to clear last input
   const backSpace = () => {
-    setResult(result.slice(0, result.length - 1));
+    setInput(input.slice(0, input.length - 1));
   };
 
-  //Function to equate the input and get result
+  //Function to equate the input and get input
   const equate = () => {
     try {
-      result = eval(result).toString();
-      if (result.includes(".")) {
-        result = +eval(result);
-        result = result.toFixed(4).toString();
-        setResult(result);
+      input = eval(input).toString();
+      if (input.includes(".")) {
+        input = +eval(input);
+        input = input.toFixed(4).toString();
+        setInput(input);
       } else {
-        setResult(eval(result).toString());
+        setInput(eval(input).toString());
       }
     } catch (err) {
-      setResult("ERROR!");
+      setInput("ERROR!");
       let timeout = setTimeout(() => {
-        setResult("0");
+        setInput("0");
         clearTimeout(timeout);
       }, 1000);
     }
@@ -105,7 +105,7 @@ const Calculator = () => {
                 <Form.Control
                   disabled
                   type="text"
-                  value={result}
+                  value={input}
                   style={{
                     color: "lightgray",
                     border: "none",
