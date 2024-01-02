@@ -1,6 +1,7 @@
-import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+import Calculator from "./components/Calculator";
 function App() {
-  return <div className="App">Calculator</div>;
+  return <Calculator />;
 }
 
 export default App;

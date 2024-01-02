@@ -1,0 +1,16 @@
+.calbutton {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  color: white;
+  border: 2px solid #908a88;
+  font-size: 30px;
+}
+
+.calbutton:hover {
+  background-color: #cf491c;
+  color: black;
+  scale: 1.01;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
